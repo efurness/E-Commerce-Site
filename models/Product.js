@@ -30,7 +30,7 @@ Product.init(
     },
   
     stock: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
       validate: {
@@ -45,6 +45,7 @@ Product.init(
       key: 'id',
       unique: false
   }
+}
 },
 
   {

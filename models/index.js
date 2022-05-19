@@ -5,14 +5,13 @@ const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
 // Products belongsTo Category
-Products.belongsTo(Category, {
+Product.belongsTo(Category, {
   
   through: {
     model: ProductTag,
     unique: false
   },
-  as: 'Product'
-
+  as: 'product_categories'
 
 
 });
@@ -29,14 +28,14 @@ as: 'product_categories'
 });
 
 // Products belongToMany Tags (through ProductTag)
-Products.belongsToMany(Tag, {
+Product.belongsToMany(Tag, {
 
   through: {
     model: ProductTag,
     unique: false
   },
 
-  as: 'product_productaTag'
+  as: 'product_tag'
 
 });
 
