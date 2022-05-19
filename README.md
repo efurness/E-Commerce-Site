@@ -1,5 +1,3 @@
-# E-Commerce-Site
-E-commerce-Back-End
 
 # E-Commerce-Site
 [GitHub license](https://img.shields.io/badge/license-undefined-blue.svg)
@@ -20,7 +18,7 @@ This is a command line application running on NODE JS, Express and mySQL using m
 
 # INSTALLATION 
 
-NODE JS, INQUIRER, Express.JS, mySQL DATABASE, DOTENV, API's were used.
+NODE JS, Express.JS, mySQL DATABASE, DOTENV, and API POST, GET, PUT and DELETE were used.
 
 # USAGE 
 
