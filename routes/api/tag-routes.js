@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
       if (req.body.tagIds.length) {
         const TagIdArr = req.body.tagIds.map((tag_id) => {
           return {
-            product_id: product.id,
+            tag_id: tag.id,
             tag_id,
           };
         });
@@ -79,6 +79,7 @@ router.put('/:id', (req, res) => {
       // find all associated tags from ProductTag
       return Tag.findAll({ where: { product_id: req.params.id } });
     })
+
     .then((Tags) => {
       // get list of current tag_ids
       const TagIds = Tags.map(({ tag_id }) => tag_id);
@@ -89,9 +90,24 @@ router.put('/:id', (req, res) => {
           return {
             product_id: req.params.id,
             tag_id,
-          };
+         };      
 });
+const TagsToRemove = Tags
+        .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+        .map(({ id }) => id);
 
+      // run both actions
+      return Promise.all([
+        Tag.destroy({ where: { id: TagsToRemove } }),
+        Tag.bulkCreate(newTags),
+      ]);
+    })
+    .then((updatedTags) => res.json(updatedTags))
+    .catch((err) => {
+      // console.log(err);
+      res.status(400).json(err);
+    });
+});
 router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
   try {
@@ -112,5 +128,5 @@ router.delete('/:id', async (req, res) => {
   }
     
 });
-    
+  
 module.exports = router;
