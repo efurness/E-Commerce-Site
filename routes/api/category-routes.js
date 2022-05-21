@@ -46,8 +46,45 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  Category.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((category) => {
+      // find all associated tags from categoryProducts
+      return ProductTag.findAll({ where: { category_id: req.params.id } });
+    })
+    .then((categoryProducts) => {
+      // get list of current product_ids
+      const categoryProductsIds = categoryProducts.map(({ tag_id }) => tag_id);
+      // create filtered list of new product_ids
+      const newcategoryProducts = req.body.productIds
+        .filter((product_id) => !categoryProductsIds.includes(product_id))
+        .map((product_id) => {
+          return {
+            category_id: req.params.id,
+            product_id,
+          };
+        });
+      // figure out which ones to remove
+      const categoryProductsToRemove = categoryProducts
+        .filter(({ product_id }) => !req.body.productIds.includes(product_id))
+        .map(({ id }) => id);
 
+      // run both actions
+      return Promise.all([
+        categoryProducts.destroy({ where: { id: categoryProductsToRemove } }),
+        categoryProducts.bulkCreate(newcategoryProducts),
+      ]);
+    })
+    .then((updatedcategoryProducts) => res.json(updatedcategoryProducts))
+    .catch((err) => {
+      // console.log(err);
+      res.status(400).json(err);
+    });
 });
+
 
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
