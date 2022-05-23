@@ -60,7 +60,7 @@ router.put('/:id', (req, res) => {
   })
     .then((category) => {
       // find all associated tags from categoryProducts
-      return ProductTag.findAll({ where: { category_id: req.params.id } });
+      return Product.findAll({ where: { category_id: req.params.id } });
     })
     .then((categoryProducts) => {
       // get list of current product_ids
@@ -85,7 +85,7 @@ router.put('/:id', (req, res) => {
         categoryProducts.bulkCreate(newcategoryProducts),
       ]);
     })
-    .then((updatedcategoryProducts) => res.json(updatedcategoryProducts))
+    .then((updatedCategoryProducts) => res.json(updatedCategoryProducts))
     .catch((err) => {
       // console.log(err);
       res.status(400).json(err);
