@@ -38,7 +38,7 @@ Tests were run to establish all the various sql queries to display in Insomnia.
  
 # QUESTIONS 
 
-My questions included to create folder with the routes for products, categories and tags in Insomnia, but I was able to create folders and requests for each to display the routes.  The delete option I had to walk through it rather then just showing after deletion that the product or category was deleted.
+My challenges included creating the folders in Insomnia with the routes for products, categories and tags.  In the video I was able to display the folders for all of the Get, Delete, Put, and Post routes.
 
 [E-Commerce-Site](https://github.com/efurness/E-Commerce-Site.git)
 
