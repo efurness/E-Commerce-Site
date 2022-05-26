@@ -43,10 +43,10 @@ My questions included to create folder with the routes for products, categories 
 [E-Commerce-Site](https://github.com/efurness/E-Commerce-Site.git)
 
 
-[E-Commerce-Site VIDEO] ()
+[E-Commerce-Site VIDEO] (https://drive.google.com/file/d/1g2a6uEcwbMe_6uPffzbiA0gO3V2vUS9S/view?usp=sharing) 
  
 
-[Project screenshot](E-Commerce-Site.gif) 
+[Project screenshot](Insomnia_Ecommerce.png) 
 
 
 * For additional help or questions about collaboration, please reach out to Ellen.Furness@du.edu.
