@@ -14,11 +14,11 @@
 
 # DESCRIPTION 
 
-This is a command line application running on NODE JS, Express and mySQL using modals and routes
+This is a command line application for E-commerce to retreive data from the database and using routes to generate the data in Insomnia using APIs.  Express.js runs the application and uses Sequelize to interact with a MySQL database.  Models were created for the database part of the application.  The NPM run command got the seed data to be served to NODE.  Under the config folder, the connection.js ran the connection which had to be started to run the application.  Routes were tested in Insomnia.  
 
 # INSTALLATION 
 
-NODE JS, Express.JS, mySQL DATABASE, DOTENV, and API POST, GET, PUT and DELETE were used.
+NODE JS, Express.JS, mySQL, NPM install to retrieve the packages including DotEnv and Sequelize.  API Routes POST, GET, PUT and DELETE were used.
 
 # USAGE 
 
@@ -30,15 +30,15 @@ Open source license
 
 # CONTRIBUTING 
 
-SOLO PROJECT
+Solo Project, Contributors welcome
 
 # TESTS 
 
-Tests were run to establish all the various sql queries.
+Tests were run to establish all the various sql queries to display in Insomnia.
  
 # QUESTIONS 
 
-After setting up the database and tables in the schema file my challenges were with the adding of roles including managers. The server.js file contained all the questions and prompts so the code was extensive.  The seeds file went well once I had all the name strings in quotes, parenthesis and commas in the right place, very detailed work.  I had to use a separate port than 3001 because the connection notified that it was inaccesible.
+My questions included to create folder with the routes for products, categories and tags in Insomnia, but I was able to create folders and requests for each to display the routes.  The delete option I had to walk through it rather then just showing after deletion that the product or category was deleted.
 
 [E-Commerce-Site](https://github.com/efurness/E-Commerce-Site.git)
 
